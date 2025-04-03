@@ -1,0 +1,6 @@
+requests
+pandas
+tweepy
+pytz
+python-dateutil
+python-dotenv
