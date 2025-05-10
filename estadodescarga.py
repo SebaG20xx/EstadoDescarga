@@ -41,19 +41,67 @@ BASE_BLOCKS = [
 ]
 
 RANGOS_INSTITUCIONES = {
+    # El prefijo 163.247.0.0/16 considera todas las IPs de la Red de Conectividad del Estado
+    # Este desglose está basado en http://red.gob.cl/subredes.html (https://archive.is/Fox4M)
+    "163.247.40.0/24": "@MinagriCL",
+    "163.247.41.0/24": "@MinisterioBBNN",
+    "163.247.42.0/24": "@MinDefChile",
+    "163.247.43.0/24": "@MEconomia",
+    "163.247.44.0/24": "@Mineduc",
+    "163.247.45.0/24": "@Min_Hacienda",
+    "163.247.46.0/24": "@MinJuDDHH",
+    "163.247.47.0/24": "@MinMineria_cl",
+    "163.247.48.0/24": "@MOP_Chile",
+    "163.247.49.0/24": "@MinDesarrollo",
+    "163.247.50.0/24": "@MinRel_Chile",
+    "163.247.51.0/24": "@MinisterioSalud",
+    "163.247.52.0/24": "@MTTChile",
+    "163.247.53.0/24": "@Minvu",
+    # "163.247.54.0/24": "",
+    "163.247.55.0/24": "@MinTrabChile",
+    "163.247.56.0/24": "@VoceriaGobierno",
+    "163.247.57.0/24": "@SegPres",
+    "163.247.58.0/24": "@MinMujeryEG",
+    "163.247.59.0/24": "@MinEnergia",
+    "163.247.60.0/24": "@ContraloriaCL",
+    "163.247.61.0/24": "@Fonasa",
+    "163.247.62.0/24": "@IPSChile",
+    "163.247.63.0/24": "@SII_Chile",
+    "163.247.64.0/24": "@RegCivil_Chile",
+    "163.247.65.0/24": "@TGRChile",
+    # "163.247.66.0/24": "",
+    # "163.247.67.0/24": "",
+    # "163.247.68.0/24": "",
+    # "163.247.69.0/24": "",
+    "163.247.70.0/24": "@Min_Interior",
+    "163.247.71.0/24": "@Presidencia_cl",
+    # "163.247.72.0/24": "",
+    # "163.247.73.0/24": "",
+    # "163.247.74.0/24": "",
+    # "163.247.75.0/24": "",
+    # "163.247.76.0/24": "",
+    # "163.247.77.0/24": "",
+    "163.247.78.0/24": "@MMAChile",
+    "163.247.79.0/24": "@SuperPensiones",
+    "163.247.80.0/24": "Red de Salud @BdoMartorell @MinisterioSalud",
+    
     "160.238.212.0/24": "@bcentralchile",
     "160.238.214.0/24": "@bcentralchile",
     "160.238.215.0/24": "@bcentralchile",
-    "200.10.182.0/24": "@bcentralchile",
+    "200.10.182.0/24" : "@bcentralchile",
+    
     "45.229.137.0/24": "@TVN",
-    "45.230.22.0/24": "@TVN",
-    "45.230.23.0/24": "@TVN",
+    "45.230.22.0/24" : "@TVN",
+    "45.230.23.0/24" : "@TVN",
+    
     "200.10.251.0/24": "@SII_Chile",
     "200.10.252.0/24": "@SII_Chile",
     "200.10.253.0/24": "@SII_Chile",
+    
     "200.12.140.0/24": "@Enap_Informa",
     "200.12.141.0/24": "@Enap_Informa",
-    "167.28.193.0/24": "@BancoEstado",
+    
+    "167.28.193.0/24" : "@BancoEstado",
     "170.233.152.0/24": "@BancoEstado",
     "170.233.153.0/24": "@BancoEstado"
 }
@@ -216,7 +264,7 @@ while True:
 
             enlace = f"https://iknowwhatyoudownload.com/en/peer/?ip={ip}"
             if fila['institucion']:
-                encabezado = f"La IP ({ip}) del {fila['institucion']} descargó:"
+                encabezado = f"La IP ({ip}) de {fila['institucion']} descargó:"
             else:
                 encabezado = f"La IP {ip} descargó:"
             nota_pasado = "\n (Esto fue descargado en el pasado)" if fue_hace_mucho else ""
@@ -233,12 +281,12 @@ while True:
                     enlace=enlace,
                     enlace_tweet=tweet_url
                 )
-                historial = pd.concat([historial, pd.DataFrame([{
-                    "ip": ip,
-                    "torrent": torrent,
-                    "fecha_tweet": datetime.now(CHILE_TZ).strftime("%Y-%m-%d %H:%M:%S")
-                }])], ignore_index=True)
-                historial.to_csv(HISTORIAL_FILE, index=False)
+            historial = pd.concat([historial, pd.DataFrame([{
+                "ip": ip,
+                "torrent": torrent,
+                "fecha_tweet": datetime.now(CHILE_TZ).strftime("%Y-%m-%d %H:%M:%S")
+            }])], ignore_index=True)
+            historial.to_csv(HISTORIAL_FILE, index=False)
             time.sleep(5)
 
     print("Esperando 1 día")
