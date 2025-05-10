@@ -33,6 +33,7 @@ HISTORIAL_FILE = "historial.csv"
 
 BASE_BLOCKS = [
     "163.247.0.0/16",
+    
     "160.238.212.0/24", "160.238.214.0/24", "160.238.215.0/24", "200.10.182.0/24",
     "45.229.137.0/24", "45.230.22.0/24", "45.230.23.0/24",
     "200.10.251.0/24", "200.10.252.0/24", "200.10.253.0/24",
@@ -42,8 +43,10 @@ BASE_BLOCKS = [
 
 RANGOS_INSTITUCIONES = {
     # El prefijo 163.247.0.0/16 considera todas las IPs de la Red de Conectividad del Estado
-    # Este desglose está basado en http://red.gob.cl/subredes.html (https://archive.is/Fox4M)
-    "163.247.40.0/24": "@MinagriCL",
+    
+    # Este bloque de datos está basado en http://red.gob.cl/subredes.html 
+    # (https://archive.is/Fox4M)
+    "163.247.40.0/24": "@MinAgriCL",
     "163.247.41.0/24": "@MinisterioBBNN",
     "163.247.42.0/24": "@MinDefChile",
     "163.247.43.0/24": "@MEconomia",
@@ -53,38 +56,81 @@ RANGOS_INSTITUCIONES = {
     "163.247.47.0/24": "@MinMineria_cl",
     "163.247.48.0/24": "@MOP_Chile",
     "163.247.49.0/24": "@MinDesarrollo",
+    
     "163.247.50.0/24": "@MinRel_Chile",
     "163.247.51.0/24": "@MinisterioSalud",
     "163.247.52.0/24": "@MTTChile",
     "163.247.53.0/24": "@Minvu",
-    # "163.247.54.0/24": "",
     "163.247.55.0/24": "@MinTrabChile",
     "163.247.56.0/24": "@VoceriaGobierno",
     "163.247.57.0/24": "@SegPres",
     "163.247.58.0/24": "@MinMujeryEG",
     "163.247.59.0/24": "@MinEnergia",
+    
     "163.247.60.0/24": "@ContraloriaCL",
     "163.247.61.0/24": "@Fonasa",
     "163.247.62.0/24": "@IPSChile",
     "163.247.63.0/24": "@SII_Chile",
     "163.247.64.0/24": "@RegCivil_Chile",
     "163.247.65.0/24": "@TGRChile",
-    # "163.247.66.0/24": "",
-    # "163.247.67.0/24": "",
-    # "163.247.68.0/24": "",
-    # "163.247.69.0/24": "",
+    
     "163.247.70.0/24": "@Min_Interior",
     "163.247.71.0/24": "@Presidencia_cl",
-    # "163.247.72.0/24": "",
-    # "163.247.73.0/24": "",
-    # "163.247.74.0/24": "",
-    # "163.247.75.0/24": "",
-    # "163.247.76.0/24": "",
-    # "163.247.77.0/24": "",
     "163.247.78.0/24": "@MMAChile",
     "163.247.79.0/24": "@SuperPensiones",
-    "163.247.80.0/24": "Red de Salud @BdoMartorell @MinisterioSalud",
     
+    "163.247.80.0/24": "Red de Salud @MinisterioSalud @BdoMartorell",
+    "163.247.81.0/24": "Red de Salud @MinisterioSalud @BdoMartorell",
+    
+    # Este bloque de datos viene desde las IPs obtenidas desde los registros DNS. 
+    # Fuentes:
+    # - https://bgp.he.net/net/163.247.0.0/16#_dnsrecords (https://archive.is/nbDsc)
+    # - https://bgp.tools/prefix/163.247.0.0/16 (https://archive.ph/9Eseq), reverse and forward DNSs
+    
+    "163.247.66.0/24": "@Junaeb",
+    "163.247.67.0/26": "@Patrimonio_cl",
+    "163.247.67.192/26": "@Junaeb",
+    "163.247.69.0/24": "@Junaeb",
+    
+    "163.247.72.0/24": "@Min_Interior",
+    "163.247.74.0/24": "@Min_Interior",
+    "163.247.75.0/24": "@Min_Interior",
+    "163.247.76.0/24": "@Min_Interior",
+    "163.247.77.0/24": "@Min_Interior",
+    
+    "163.247.82.0/24": "@Senadis_Gob",
+    "163.247.84.0/24": "@INE_Chile",
+    
+    "163.247.90.0/24": "@PDI_Chile",
+    "163.247.95.0/24": "@TGRChile",
+    "163.247.96.0/24": "@Culturas_cl",
+    
+    "163.247.100.0/24": "@SubREI_Chile",
+    "163.247.119.0/24": "@FOSIS_Chile",
+    
+    "163.247.120.0/24": "@MinDepChile",
+    "163.247.122.0/24": "Red de Salud @MinisterioSalud @BdoMartorell",
+    "163.247.123.0/24": "@DirecDelTrabajo",
+    "163.247.124.0/24": "@SuperEduc_cl",
+    "163.247.125.0/24": "@SuperIR_Gob",
+    "163.247.126.0/24": "@SuperIR_Gob",
+    "163.247.127.0/24": "@ISLChile",
+    "163.247.128.0/24": "@Ciren_Chile @MinAgriCL",
+    "163.247.129.0/24": "@CochilcoChile",
+    
+    "163.247.130.0/24": "@laSubdere",
+    "163.247.132.0/24": "@DGACchile",
+    "163.247.133.0/24": "@CarabDeChile",
+    
+    "163.247.140.0/24": "@AnciChile",
+    
+    "163.247.172.0/26"  : "@MinDefChile",
+    "163.247.172.64/26" : "@Min_Interior",
+    "163.247.172.128/25": "@Min_Interior",
+    
+    "163.247.175.0/24": "@Min_Interior",
+    
+    # Originales del script
     "160.238.212.0/24": "@bcentralchile",
     "160.238.214.0/24": "@bcentralchile",
     "160.238.215.0/24": "@bcentralchile",
