@@ -13,7 +13,7 @@ Utiliza la [API de iknowwhatyoudownload.com](https://iknowwhatyoudownload.com/en
 
 ## Requisitos
 
-- Python 3.9+
+- Python 3.11+
 - Acceso a la API de [iknowwhatyoudownload.com](https://iknowwhatyoudownload.com/)
 - Claves de Twitter API (v1.1)
 
