@@ -204,16 +204,17 @@ def get_ip_history(ip):
     return None
 
 def fue_tuiteado(ip, torrent, historial):
-    coincidencias = historial[(historial["ip"] == ip) & (historial["torrent"] == torrent)]
+    coincidencias = historial[historial["torrent"] == torrent]
     if coincidencias.empty:
         return False, False
-    fecha_ultima = pd.to_datetime(coincidencias.iloc[-1]["fecha_tweet"]).tz_localize(CHILE_TZ)
+    fecha_ultima = pd.to_datetime(coincidencias["fecha_tweet"]).max().tz_localize(CHILE_TZ)
     ahora = datetime.now(CHILE_TZ)
     hace_dos_meses = ahora - relativedelta(months=2)
 
     if fecha_ultima < hace_dos_meses:
         return False, True  # fue hace más de 2 meses
     return True, False      # ya fue tuiteado recientemente
+
 
 
 
